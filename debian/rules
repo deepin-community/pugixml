@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+include /usr/share/pkg-kde-tools/makefiles/1/cdbs/symbolshelper.mk
+
+%:
+	dh $@ --buildsystem=cmake
+
+# Build the shared library
+DEB_CMAKE_EXTRA_FLAGS += -DCMAKE_INSTALL_LIBDIR=lib/$(DEB_HOST_MULTIARCH) -DBUILD_SHARED_LIBS=ON -DPUGIXML_BUILD_SHARED_AND_STATIC_LIBS=ON -DPUGIXML_USE_VERSIONED_LIBDIR=OFF
+ifeq ($(filter nocheck,$(DEB_BUILD_OPTIONS)),)
+DEB_CMAKE_EXTRA_FLAGS += -DPUGIXML_BUILD_TESTS=1
+endif
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(DEB_CMAKE_EXTRA_FLAGS)
