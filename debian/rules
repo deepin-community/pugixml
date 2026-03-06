@@ -1,7 +1,5 @@
 #!/usr/bin/make -f
 
-include /usr/share/pkg-kde-tools/makefiles/1/cdbs/symbolshelper.mk
-
 %:
 	dh $@ --buildsystem=cmake
 
