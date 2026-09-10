@@ -1,3 +1,9 @@
+pugixml (1.14-3) unstable; urgency=medium
+
+  * Rebuild with LTO enabled (dpkg vendor feature optimize/lto).
+
+ -- tunaichao <tunaichao@uniontech.com>  Thu, 10 Sep 2026 20:08:48 +0800
+
 pugixml (1.14-2) unstable; urgency=medium
 
   * Team upload
